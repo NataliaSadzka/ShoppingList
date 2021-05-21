@@ -13,12 +13,12 @@
             android:layout_width="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Add New User"
+            android:text="Add New Product"
             android:textAllCaps="false"/>
 
     <Button
             android:id="@+id/addNewUserButton"
-            android:text="Dodaj nowego użytkownika"
+            android:text="Dodaj nowy produkt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"

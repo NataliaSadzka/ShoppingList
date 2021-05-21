@@ -6,12 +6,11 @@ import android.view.View;
 import android.widget.Button;
 import androidx.annotation.Nullable;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.recyclerview.database.AppDatabase;
-import com.example.recyclerview.database.User;
+import com.example.recyclerview.database.Product;
 
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class MainActivity extends Activity {
         addNewUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(MainActivity.this, AddNewUserActivity.class), 100);
+                startActivityForResult(new Intent(MainActivity.this, AddNewProductActivity.class), 100);
             }
         });
         initRecyclerView();
@@ -47,8 +46,8 @@ public class MainActivity extends Activity {
 
     private void loadUserList() {
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        List<User>userList = db.userDao().getAllUsers();
-        userListAdapter.setUserList(userList);
+        List<Product> productList = db.productDAO().getAllUsers();
+        userListAdapter.setUserList(productList);
     }
 
     @Override

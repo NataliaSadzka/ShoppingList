@@ -4,24 +4,27 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.recyclerview.database.User;
+import com.example.recyclerview.database.AppDatabase;
+import com.example.recyclerview.database.Product;
 
 import java.util.List;
 
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyViewHolder> {
 
     private Context context;
-    private List<User> userList;
+    private List<Product> productList;
 
     public UserListAdapter(Context context) {
         this.context = context;
     }
 
-    public void setUserList(List<User> userList) {
-        this.userList = userList;
+    public void setUserList(List<Product> productList) {
+        this.productList = productList;
         notifyDataSetChanged();
     }
 
@@ -34,24 +37,34 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, int position) {
-        holder.tvName.setText(this.userList.get(position).name);
-        holder.tvSurname.setText(this.userList.get(position).surname);
+    public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, final int position) {
+        holder.tvName.setText(this.productList.get(position).getName());
+        holder.tvQuantity.setText(this.productList.get(position).getQuantityUnit());
+        holder.image_delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AppDatabase db = AppDatabase.getDbInstance(v.getContext());
+                db.productDAO().delete(productList.get(position));
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        return this.userList.size();
+        return this.productList.size();
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView tvName;
-        TextView tvSurname;
+        TextView tvQuantity;
+        ImageView image_delete;
 
         public MyViewHolder(View view) {
             super(view);
             tvName = view.findViewById(R.id.tvName);
-            tvSurname = view.findViewById(R.id.tvSurname);
+            tvQuantity = view.findViewById(R.id.tvQuantity);
+            image_delete = view.findViewById(R.id.image_delete);
         }
     }
+
 }

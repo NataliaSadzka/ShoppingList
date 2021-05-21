@@ -8,13 +8,13 @@ import androidx.room.Query;
 import java.util.List;
 
 @Dao
-public interface UserDao {
-    @Query("SELECT * FROM user")
-    List<User>getAllUsers();
+public interface ProductDAO {
+    @Query("SELECT * FROM Product")
+    List<Product>getAllUsers();
 
     @Insert
-    void insertUser(User ... users);
+    void insertUser(Product... products);
 
     @Delete
-    void delete(User user);
+    void delete(Product product);
 }
