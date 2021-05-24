@@ -16,6 +16,8 @@ public class Product {
     @ColumnInfo(name = "quantity-unit")
     private String quantityUnit;
 
+
+
     public int getUid() {
         return uid;
     }
