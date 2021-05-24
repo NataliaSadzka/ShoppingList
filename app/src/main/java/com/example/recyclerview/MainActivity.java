@@ -46,7 +46,7 @@ public class MainActivity extends Activity {
 
     private void loadUserList() {
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        List<Product> productList = db.productDAO().getAllUsers();
+        List<Product> productList = db.productDAO().getAllProducts();
         userListAdapter.setUserList(productList);
     }
 

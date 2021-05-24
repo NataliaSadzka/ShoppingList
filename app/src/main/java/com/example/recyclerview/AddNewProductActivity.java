@@ -39,7 +39,7 @@ public class AddNewProductActivity extends Activity implements AdapterView.OnIte
         product.setName(name);
         product.setQuantityUnit(quantityUnit);
 
-        db.productDAO().insertUser(product);
+        db.productDAO().insertProduct(product);
         finish();
     }
 

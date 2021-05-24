@@ -10,10 +10,10 @@ import java.util.List;
 @Dao
 public interface ProductDAO {
     @Query("SELECT * FROM Product")
-    List<Product>getAllUsers();
+    List<Product> getAllProducts();
 
     @Insert
-    void insertUser(Product... products);
+    void insertProduct(Product... products);
 
     @Delete
     void delete(Product product);

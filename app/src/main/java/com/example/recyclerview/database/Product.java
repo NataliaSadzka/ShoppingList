@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey;
 public class Product {
 
     @PrimaryKey(autoGenerate = true)
-    private int uid;
+    private int productId;
 
     @ColumnInfo(name = "name")
     private String name;
@@ -17,13 +17,12 @@ public class Product {
     private String quantityUnit;
 
 
-
-    public int getUid() {
-        return uid;
+    public int getProductId() {
+        return productId;
     }
 
-    public void setUid(int uid) {
-        this.uid = uid;
+    public void setProductId(int productId) {
+        this.productId = productId;
     }
 
     public String getName() {
@@ -42,3 +41,4 @@ public class Product {
         this.quantityUnit = quantityUnit;
     }
 }
+
