@@ -11,7 +11,7 @@ public class ShoppingListWithProducts {
     @Relation(
             parentColumn = "shoppingListId",
             entityColumn = "productId",
-            associateBy = @Junction(ProductShoppingList.class)
+            associateBy = @Junction(ShoppingListProduct.class)
     )
     public List<Product> products;
 }

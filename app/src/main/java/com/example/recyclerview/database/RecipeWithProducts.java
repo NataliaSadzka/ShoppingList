@@ -12,7 +12,7 @@ public class RecipeWithProducts {
     @Relation(
             parentColumn = "recipeId",
             entityColumn = "productId",
-            associateBy = @Junction(ProductRecipe.class)
+            associateBy = @Junction(RecipeProduct.class)
     )
     public List<Product> products;
 }

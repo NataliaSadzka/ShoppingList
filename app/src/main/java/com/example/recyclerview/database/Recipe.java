@@ -17,6 +17,16 @@ public class Recipe {
     @ColumnInfo(name = "photo")
     private byte[] photo;
 
+    public Recipe() {
+
+    }
+
+    public Recipe(int recipeId, String name, byte[] photo) {
+        this.recipeId = recipeId;
+        this.name = name;
+        this.photo = photo;
+    }
+
     public int getRecipeId() {
         return recipeId;
     }

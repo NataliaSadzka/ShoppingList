@@ -16,6 +16,15 @@ public class Product {
     @ColumnInfo(name = "quantity-unit")
     private String quantityUnit;
 
+    public Product() {
+
+    }
+
+    public Product(int productId, String name, String quantityUnit) {
+        this.productId = productId;
+        this.name = name;
+        this.quantityUnit = quantityUnit;
+    }
 
     public int getProductId() {
         return productId;

@@ -2,12 +2,22 @@ package com.example.recyclerview.database;
 
 import androidx.room.Entity;
 
-@Entity(primaryKeys = {"productId", "recipeId"})
-public class ProductRecipe {
+@Entity(primaryKeys = {"recipeId", "productId"})
+public class RecipeProduct {
 
-    private long productId;
     private long recipeId;
-    private int quantity;
+    private long productId;
+    private double quantity;
+
+    public RecipeProduct() {
+
+    }
+
+    public RecipeProduct(long recipeId, long productId, double quantity) {
+        this.recipeId = recipeId;
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 
     public long getProductId() {
         return productId;
@@ -25,11 +35,11 @@ public class ProductRecipe {
         this.recipeId = recipeId;
     }
 
-    public int getQuantity() {
+    public double getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(int quantity) {
+    public void setQuantity(double quantity) {
         this.quantity = quantity;
     }
 }

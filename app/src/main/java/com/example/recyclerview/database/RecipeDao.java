@@ -1,16 +1,20 @@
 package com.example.recyclerview.database;
 
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Transaction;
 
 import java.util.List;
 
 @Dao
-public interface RecipeWithProductsDAO {
-    @Transaction
+public interface RecipeDao {
     @Query("SELECT * FROM Recipe")
-    List<RecipeWithProducts> getRecipeWithProducts();
+    List<Recipe> getAllRecipes();
 
+    @Insert
+    void insertRecipe(Recipe... recipes);
+
+    @Delete
+    void delete(Recipe recipe);
 }

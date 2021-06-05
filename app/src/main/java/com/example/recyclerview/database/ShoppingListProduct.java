@@ -2,13 +2,24 @@ package com.example.recyclerview.database;
 
 import androidx.room.Entity;
 
-@Entity(primaryKeys = {"productId", "shoppingListId"})
-public class ProductShoppingList {
+@Entity(primaryKeys = {"shoppingListId", "productId"})
+public class ShoppingListProduct {
 
-    private long productId;
     private long shoppingListId;
+    private long productId;
     private int quantity;
     private boolean added;
+
+    public ShoppingListProduct() {
+
+    }
+
+    public ShoppingListProduct(long shoppingListId, long productId, int quantity, boolean added) {
+        this.shoppingListId = shoppingListId;
+        this.productId = productId;
+        this.quantity = quantity;
+        this.added = added;
+    }
 
     public long getProductId() {
         return productId;
