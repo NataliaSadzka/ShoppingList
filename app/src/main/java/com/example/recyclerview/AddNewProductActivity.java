@@ -12,7 +12,7 @@ public class AddNewProductActivity extends Activity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_new_product);
+        setContentView(R.layout.recycler_row);
 
         final EditText nameInput = findViewById(R.id.nameInput);
         final Spinner spinner = findViewById(R.id.spinner1);
@@ -39,7 +39,7 @@ public class AddNewProductActivity extends Activity implements AdapterView.OnIte
         product.setName(name);
         product.setQuantityUnit(quantityUnit);
 
-        db.productDAO().insertProduct(product);
+        db.productDao().insertProduct(product);
         finish();
     }
 

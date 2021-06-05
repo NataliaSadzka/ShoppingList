@@ -16,23 +16,46 @@ import java.util.List;
 
 public class MainActivity extends Activity {
 
-    private UserListAdapter userListAdapter;
+    private ProductListAdapter productListAdapter;
+    private Button shoppingList;
+    private Button recipes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main_menu_activity);
 
-        Button addNewUserButton = findViewById(R.id.addNewUserButton);
-        addNewUserButton.setOnClickListener(new View.OnClickListener() {
+        Button shoppingList = findViewById(R.id.shoppingList);
+        Button recipes = findViewById(R.id.recipes);
+
+        /*Button addNewProductButton = findViewById(R.id.addNewRecipeButton);
+        addNewProductButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivityForResult(new Intent(MainActivity.this, AddNewProductActivity.class), 100);
+                startActivityForResult(new Intent(MainActivity.this, AddNewRecipeActivity.class), 100);
             }
         });
         initRecyclerView();
-        loadUserList();
+        loadUserList();*/
+
+        shoppingList.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, AddNewProductActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        recipes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, RecipesActivity.class);
+                startActivity(intent);
+            }
+        });
     }
+
+
 
     private void initRecyclerView() {
         RecyclerView recyclerView = findViewById(R.id.recyclerView);
@@ -40,14 +63,14 @@ public class MainActivity extends Activity {
         recyclerView.setHasFixedSize(true);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(this, DividerItemDecoration.VERTICAL);
         recyclerView.addItemDecoration(dividerItemDecoration);
-        userListAdapter = new UserListAdapter(this);
-        recyclerView.setAdapter(userListAdapter);
+        productListAdapter = new ProductListAdapter(this);
+        recyclerView.setAdapter(productListAdapter);
     }
 
     private void loadUserList() {
         AppDatabase db = AppDatabase.getDbInstance(this.getApplicationContext());
-        List<Product> productList = db.productDAO().getAllProducts();
-        userListAdapter.setUserList(productList);
+        List<Product> productList = db.productDao().getAllProducts();
+        productListAdapter.setProductList(productList);
     }
 
     @Override
@@ -57,4 +80,6 @@ public class MainActivity extends Activity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
 }

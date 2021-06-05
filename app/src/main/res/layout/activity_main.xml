@@ -17,7 +17,7 @@
             android:textAllCaps="false"/>
 
     <Button
-            android:id="@+id/addNewUserButton"
+            android:id="@+id/addNewRecipeButton"
             android:text="Dodaj nowy produkt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

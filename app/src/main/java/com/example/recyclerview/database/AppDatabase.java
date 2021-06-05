@@ -12,8 +12,8 @@ import java.util.concurrent.Executors;
 @Database(entities = {Product.class, Recipe.class, ShoppingList.class, RecipeProduct.class, ShoppingListProduct.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
 
-    public abstract ProductDao productDAO();
-    public abstract RecipeDao recipeDAO();
+    public abstract ProductDao productDao();
+    public abstract RecipeDao recipeDao();
     public abstract RecipeProductDao recipeProductDao();
     public abstract RecipeWithProductsDAO recipeWithProductsDAO();
     public abstract ShoppingListWithProductsDAO shoppingListWithProductsDAO();
@@ -30,8 +30,8 @@ public abstract class AppDatabase extends RoomDatabase {
                             Executors.newSingleThreadExecutor().execute(new Runnable() {
                                 @Override
                                 public void run() {
-                                    INSTANCE.productDAO().insertProduct(INSTANCE.products);
-                                    INSTANCE.recipeDAO().insertRecipe(INSTANCE.recipes);
+                                    INSTANCE.productDao().insertProduct(INSTANCE.products);
+                                    INSTANCE.recipeDao().insertRecipe(INSTANCE.recipes);
                                     INSTANCE.recipeProductDao().insertRecipeProduct(INSTANCE.chiliConCarneRecipe);
                                 }
                             });

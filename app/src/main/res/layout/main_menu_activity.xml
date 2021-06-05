@@ -6,13 +6,19 @@
     <Button
             android:text="Lista zakupów"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button" android:layout_marginLeft="20dp"
-            android:textSize="16sp"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/shoppingList"
+            android:layout_marginLeft="20dp"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"/>
     <Button
             android:text="Przepisy"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" android:id="@+id/button2"
-            android:layout_marginLeft="170dp" android:textSize="16sp"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/recipes"
+            android:layout_marginLeft="190dp"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"/>
 
     <ImageView
             android:id="@+id/image_help"
@@ -20,5 +26,5 @@
             android:layout_height="50dp"
             android:src="@drawable/ic_help"
             android:layout_marginLeft="340dp"
-    />
+            android:layout_marginTop="5dp"/>
 </RelativeLayout>

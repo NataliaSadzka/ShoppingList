@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -14,37 +13,38 @@ import com.example.recyclerview.database.Product;
 
 import java.util.List;
 
-public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.MyViewHolder> {
+public class ProductListAdapter extends RecyclerView.Adapter<ProductListAdapter.MyViewHolder> {
 
     private Context context;
     private List<Product> productList;
 
-    public UserListAdapter(Context context) {
+    public ProductListAdapter(Context context) {
         this.context = context;
     }
 
-    public void setUserList(List<Product> productList) {
+
+    public void setProductList(List<Product> productList) {
         this.productList = productList;
         notifyDataSetChanged();
     }
 
     @NonNull
     @Override
-    public UserListAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductListAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.recycler_row, parent, false);
 
         return new MyViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull UserListAdapter.MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull ProductListAdapter.MyViewHolder holder, final int position) {
         holder.tvName.setText(this.productList.get(position).getName());
         holder.tvQuantity.setText(this.productList.get(position).getQuantityUnit());
         holder.image_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppDatabase db = AppDatabase.getDbInstance(v.getContext());
-                db.productDAO().delete(productList.get(position));
+                db.productDao().delete(productList.get(position));
             }
         });
     }
