@@ -24,6 +24,24 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".AddNewRecipeActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".RecipesRowActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".RecipesActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>
